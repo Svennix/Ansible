@@ -1,6 +1,5 @@
 ---
-- hosts: all
-  tasks:
+- tasks:
     - name: Update all packages to their latest version
       apt:
         upgrade: yes
