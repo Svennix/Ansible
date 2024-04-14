@@ -1,13 +1,5 @@
 ---
 - hosts: all
-
-  become: true
-
   tasks:
-    - name: APT Package Updater
-      apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
-      
-      
-#      apt:
-#        upgrade: yes
-#        update_cache: yes
+   - name: Upgrade all apt packages
+      apt: state=latest force_apt_get=yes
