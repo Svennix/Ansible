@@ -5,6 +5,11 @@
 
   tasks:
     - name: APT Package Updater
-      apt:
-        upgrade: yes
-        update_cache: yes
+      ansible.builtin.apt:
+        name: "*"
+        state: latest
+      
+      
+#      apt:
+#        upgrade: yes
+#        update_cache: yes
