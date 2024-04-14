@@ -6,11 +6,13 @@
   tasks:
     - name: Perform a dist-upgrade.
       ansible.builtin.apt:
+        become: yes
         upgrade: dist
         update_cache: yes
 
     - name: Check if a reboot is required.
       ansible.builtin.stat:
+        become: yes
         path: /var/run/reboot-required
         get_checksum: no
       register: reboot_required_file
@@ -21,4 +23,5 @@
 
     - name: Remove dependencies that are no longer required.
       ansible.builtin.apt:
+        become: yes
         autoremove: yes
