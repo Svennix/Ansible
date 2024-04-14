@@ -1,18 +1,18 @@
 ---
 - hosts: all
   gather_facts: yes
-  become: yes
+  become: true
 
   tasks:
     - name: Perform a dist-upgrade.
       ansible.builtin.apt:
-        become: yes
+        become: true
         upgrade: dist
         update_cache: yes
 
     - name: Check if a reboot is required.
       ansible.builtin.stat:
-        become: yes
+        become: true
         path: /var/run/reboot-required
         get_checksum: no
       register: reboot_required_file
@@ -23,5 +23,5 @@
 
     - name: Remove dependencies that are no longer required.
       ansible.builtin.apt:
-        become: yes
+        become: true
         autoremove: yes
