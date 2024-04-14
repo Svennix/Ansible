@@ -1,10 +1,10 @@
 ---
 - hosts: all
-  become: true
+  become: yes
 
   tasks:
     - name: Perform a dist-update
-      become: true
+      become: yes
       apt:
         update_cache: yes 
 
