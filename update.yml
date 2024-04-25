@@ -1,9 +1,9 @@
 ---
 - hosts: all
-  become: yes
 
   tasks:
     - name: Perform a dist-upgrade.
+      become: yes
       apt:
         upgrade: dist
         
